@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useForm } from '../hook/useForm';
 import { PokemonContext } from "./PokemonContext";
 
 export default function PokemonProvider({children}) {
@@ -7,6 +8,9 @@ export default function PokemonProvider({children}) {
     const [offset, setOffset] = useState(0);
 
     //Utilizar CustomHook  - Use Form
+    const {valueSearch, onInputChange, onResetForm} = useForm({
+        valueSearch: ''
+    })
     
     //Estados carga
     const[loading, setLoading] = useState(true);
@@ -66,6 +70,15 @@ export default function PokemonProvider({children}) {
 
 
   return (
-    <PokemonContext.Provider value={{ numero:0 }}> {children}</PokemonContext.Provider>
+    <PokemonContext.Provider 
+        value={{ 
+            valueSearch,
+            onInputChange,
+            onResetForm,
+            allPokemon,
+            globalPokemon,
+            getPokemonById }}> 
+        {children}
+    </PokemonContext.Provider>
   )
 }
