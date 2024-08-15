@@ -111,6 +111,8 @@ export const PokemonProvider = ({ children }) => {
 		});
 
 		if (e.target.checked) {
+            console.log(globalPokemons);
+            console.log(e.target.name);
 			const filteredResults = globalPokemons.filter(pokemon =>
 				pokemon.types
 					.map(type => type.type.name)
