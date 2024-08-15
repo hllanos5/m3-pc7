@@ -12,7 +12,7 @@ export const PokemonPage = () => {
 
 	const { id } = useParams();
 
-	const fetchPokemon = async (id) => {
+	const fetchPokemon = async id => {
 		const data = await getPokemonByID(id);
 		setPokemon(data);
 		setLoading(false);
