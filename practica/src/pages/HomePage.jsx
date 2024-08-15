@@ -1,5 +1,5 @@
 import React from 'react'
-import { PokemonList } from '../components'
+import { PokemonList, FilterBar } from '../components'
 
 export function HomePage() {
   return (
@@ -24,6 +24,7 @@ export function HomePage() {
       </div>
     </div>
     <PokemonList/>
+    <FilterBar/>
     </>
   )
 }
